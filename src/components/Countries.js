@@ -13,8 +13,8 @@ const Countries = () => {
     useEffect(()=>{
         
         getCountry();
-       
-        //eslint-disable-next-line
+        
+       //eslint-disable-next-line
     },[]);
 
     if(loading){
@@ -23,18 +23,37 @@ const Countries = () => {
         )
     };
 
+    let val=window.innerWidth
+    
+
 
     return (
             <Fragment>
             <Search/>
-            
-            {countries[0].map(country =>(
+            <hr/>
+            <div style={val<400?countryStyleMobi:countryStyle}>
+            {countries.map(country =>(
                 <SingleCountry key={country.numericCode} country={country}/>
             ))}
-            
+            </div>
 
             </Fragment>
     )
-}
+
+   
+};
+
+const countryStyle={
+    display:'grid',
+    gridTemplateColumns:'repeat(4 ,1fr)',
+    gridGap:'0.5rem'
+};
+
+const countryStyleMobi={
+    display:'grid',
+    gridTemplateColumns:'repeat(1 ,1fr)',
+    gridGap:'0.5rem'
+};
+
 
 export default Countries

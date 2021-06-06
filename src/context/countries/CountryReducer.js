@@ -10,13 +10,13 @@ import {
            case GET_COUNTRY:
                return{
                 ...state,
-                countries:[action.payload],
+                countries:action.payload,
                 loading:false
                };
            case SEARCH_COUNTRY:
                return{
                    ...state,
-                   countries:state.countries.filter(country => country.id !== action.payload)
+                  countries:action.payload
                };    
            
           default:

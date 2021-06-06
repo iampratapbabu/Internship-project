@@ -1,16 +1,25 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
+import CountryContext from '../context/countries/CountryContext';
+
 
 const Search = () => {
 
-    const [countryName,setCountryName]=useState();
+    const countriesContext  = useContext(CountryContext);
+    const { searchCountry} = countriesContext;
+
+    const [countryName,setCountryName]=useState('');
 
     const onChange= (e) =>{
         setCountryName(e.target.value);
         
     };
 
-    const onSubmit = () =>{
+    const onSubmit = (e) =>{
+        e.preventDefault();
         console.log(countryName);
+        searchCountry(countryName);
+        setCountryName('');
+
     };
 
     return (
@@ -21,6 +30,8 @@ const Search = () => {
             <input type="submit" className="btn btn-dark mt-2"></input>
             </div>
             </form>
+            
+           
         </div>
     )
 }

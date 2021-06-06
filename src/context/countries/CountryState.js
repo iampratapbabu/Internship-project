@@ -36,8 +36,10 @@ const CountryState = (props) =>{
  };
   
   //  DELETE_BLOG,
-  const searchCountry = (id) =>{
-    dispatch({type:SEARCH_COUNTRY,payload:id});
+  const searchCountry = async (countryName) =>{
+    const res = await axios.get(`https://restcountries.eu/rest/v2/name/${countryName}`);
+     console.log(res.data);
+     dispatch({type:SEARCH_COUNTRY,payload:res.data});
   };
   
   

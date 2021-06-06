@@ -7,7 +7,7 @@ import './App.css';
 import CountryState from './context/countries/CountryState';
 
 //components
-import About from './components/About';
+
 import Countries from './components/Countries';
 
 
@@ -21,11 +21,8 @@ function App() {
       <div className="container">
      
         <h1>Opecise Research Private Limited</h1>
+        <p>Developed By: Tej Pratap</p>
         <Countries/>
-        <Switch>
-          <Route exact path='/about'component={About}/>
-        </Switch>
-      
       </div>
       
     </Fragment>
