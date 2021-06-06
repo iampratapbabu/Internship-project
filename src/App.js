@@ -4,37 +4,34 @@ import { Route,Switch } from "react-router-dom";
 import './App.css';
 
 //context files
-import BlogsState from './context/blogs/BlogsState';
-import AuthState from './context/auth/AuthState';
+import CountryState from './context/countries/CountryState';
 
-//components files
+//components
 import About from './components/About';
-
-//layout files
-import Header from './layout/Header';
-import Footer from './layout/Footer';
+import Countries from './components/Countries';
 
 
 function App() {
   return (
-    <AuthState>
-    <BlogsState>
+    
+    <CountryState>
 
     <Fragment>
      
       <div className="container">
-      <Header/>
-        <h1>Hello React</h1>
+     
+        <h1>Opecise Research Private Limited</h1>
+        <Countries/>
         <Switch>
           <Route exact path='/about'component={About}/>
         </Switch>
-      <Footer/>
+      
       </div>
       
     </Fragment>
     
-    </BlogsState>
-    </AuthState>
+    </CountryState>
+    
     
   );
 }
